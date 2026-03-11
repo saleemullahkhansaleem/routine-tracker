@@ -128,7 +128,8 @@ function BlockCard({ block, tracking, onStart, onStop, onEdit, elapsed }: BlockC
     <div
       className={cn(
         "relative overflow-hidden rounded-lg border border-border/70 px-4 py-3.5 transition-colors",
-        "flex flex-wrap items-start gap-2.5",
+        // Stack on mobile, row on larger screens
+        "flex flex-col gap-3 sm:flex-row sm:items-start",
         isActive && "ring-1 ring-primary/40 bg-card/80",
       )}
       style={{
@@ -190,7 +191,7 @@ function BlockCard({ block, tracking, onStart, onStop, onEdit, elapsed }: BlockC
       </div>
 
       {/* Controls */}
-      <div className="flex shrink-0 items-center gap-1.5">
+      <div className="mt-1 flex w-full items-center justify-between gap-1.5 sm:mt-0 sm:w-auto sm:justify-normal">
         {!isActive ? (
           <Button
             size="sm"
@@ -601,11 +602,11 @@ export default function App() {
           <Button
             type="button"
             variant="outline"
-            size="xs"
+            size="sm"
             className="border-destructive/30 text-[0.72rem] font-semibold tracking-[0.04em] uppercase text-destructive"
             onClick={handleResetDefaults}
           >
-            Reset to defaults
+            Reset
           </Button>
         </div>
 
